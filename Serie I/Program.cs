@@ -10,8 +10,8 @@ namespace Serie_I
     {
         static void Main(string[] args)
         {
+            ElementaryOperations.BasicOperation(1, 10, '/');
             
-
             // Keep the console window open
             Console.WriteLine("----------------------");
             Console.WriteLine("Press any key to exit.");
