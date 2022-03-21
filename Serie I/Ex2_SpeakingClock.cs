@@ -10,8 +10,32 @@ namespace Serie_I
     {
         public static string GoodDay(int heure)
         {
-            //TODO
-            return string.Empty;
+            string msg;
+            if (heure < 6)
+            {
+                msg = "Merveilleuse nuit !";
+            } 
+            else if (heure < 12)
+            {
+                msg = "Bonne matinée !";
+            }
+            else if (heure == 12)
+            {
+                msg = "Bon appétit !";
+            }
+            else if (heure < 18)
+            {
+                msg = "Profitez de votre après-midi!";
+            }
+            else if (heure < 24)
+            {
+                msg = "Passez une bonne soirée!";
+            }
+            else
+            {
+                msg = "...";
+            }
+            return $"Il est {heure}, {msg}";
         }
     }
 }
