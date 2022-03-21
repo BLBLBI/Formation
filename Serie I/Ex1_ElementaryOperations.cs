@@ -36,12 +36,41 @@ namespace Serie_I
 
         public static void IntegerDivision(int a, int b)
         {
-            //TODO
+            string res;
+            if (b != 0)
+            {
+                int q = a / b;
+                int r = a % b;
+
+                res = $"{a} = {q} * {b}";
+                if (r != 0)
+                    res += $" + {r}";
+            }
+            else
+                res = $"{a} : {b} = Opération invalide.";
+
+            Console.WriteLine(res);
         }
 
         public static void Pow(int a, int b)
         {
-            //TODO
+            string res = $"{a} ^ {b} = ";
+            int r = a;
+            if (b < 0)
+            {
+                res = "Opération invalide";
+            } else if (b == 0)
+            {
+                res += "1";
+            } else
+            {
+                for (int i = 0; i < b-1; i++)
+                {
+                    r *= a;
+                }
+                res += $"{r}";
+            }
+            Console.WriteLine(res);
         }
     }
 }

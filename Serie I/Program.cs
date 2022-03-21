@@ -11,6 +11,10 @@ namespace Serie_I
         static void Main(string[] args)
         {
             ElementaryOperations.BasicOperation(1, 10, '/');
+
+            ElementaryOperations.IntegerDivision(3, 0);
+
+            ElementaryOperations.Pow(3, 8);
             
             // Keep the console window open
             Console.WriteLine("----------------------");
