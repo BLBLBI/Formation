@@ -11,10 +11,8 @@ namespace Serie_I
         public static int Factorial_(int n)
         {
             int res = 1;
-            if (n == 0)
-                return res;
 
-            for (int i=1; i<=n; i++)
+            for (int i=2; i<=n; i++)
             {
                 res *= i;
             }

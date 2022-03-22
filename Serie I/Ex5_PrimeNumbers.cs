@@ -15,7 +15,6 @@ namespace Serie_I
                 if (valeur % i == 0)
                     return false;
             }
-
                 return true;
         }
 
