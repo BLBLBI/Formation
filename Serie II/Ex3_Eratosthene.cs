@@ -13,6 +13,7 @@ namespace Serie_II
             int min = 2;
             int max = (int)Math.Sqrt(n);
             int[] t = new int[n + 1];
+
             for (int i = 0; i < t.Length; i++)
                 t[i] = i;
 

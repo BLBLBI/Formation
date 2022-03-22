@@ -63,9 +63,7 @@ namespace Serie_II
 
         public static bool QcmValidity(Qcm qcm)
         {
-            if (qcm.Solution <= qcm.Answers.Length && qcm.Solution > 0 && qcm.Weight > 0)
-                return true;
-            return false;
+            return qcm.Solution <= qcm.Answers.Length && qcm.Solution > 0 && qcm.Weight > 0;
         }
     }
 }

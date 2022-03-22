@@ -26,7 +26,7 @@ namespace Serie_II
                     Console.Write($" {te[i]}");
             }
             Console.WriteLine("\n");
-
+            /*
             Qcm q1 = new Qcm("Nom du Président", new string[] { "Chirac", "De Gaulle", "Macron" }, 3, 2);
             Qcm q2 = new Qcm("Pourquoi thomas existe?", new string[] { "¯\\_(ツ)_/¯" }, 1, 1);
             Qcm q3 = new Qcm("date!", new string[] { "21/03", "22/03", "23/03", "24/03", "25/03" }, 5, 7);
@@ -34,9 +34,18 @@ namespace Serie_II
             Qcm[] q = new Qcm[] { q1, q2, q3 };
 
             Quiz.AskQuestions(q);
+            */
 
+            int[] l = new int[] { 1, 2, 3 };
+            int[] r = new int[] { -1, -4, 0 };
 
+            Matrix.DisplayMatrix(Matrix.BuildingMatrix(l, r));
 
+            int[][] m1 = new int[][] { new int[] { 1, 2 }, new int[] { 4, 6 }, new int[] { -1, 8 } };
+            int[][] m2 = new int[][] { new int[] { -1, 5 }, new int[] { -4, 0 }, new int[] { 0, 2 } };
+
+            Matrix.DisplayMatrix(Matrix.Addition(m1, m2));
+            Matrix.DisplayMatrix(Matrix.Substraction(m1, m2));
 
             // Keep the console window open
             Console.WriteLine();
