@@ -19,9 +19,18 @@ namespace Serie_II
             Console.WriteLine(Search.BinarySearch(td, 2));
             Console.WriteLine(Search.BinarySearch(td, -8));
 
+            int[] te = Eratosthene.EratosthenesSieve(100);
+            for (int i = 0; i < te.Length; i++)
+            {
+                if (te[i] != -1)
+                    Console.Write($" {te[i]}");
+            }
+
+
 
 
             // Keep the console window open
+            Console.WriteLine();
             Console.WriteLine("----------------------");
             Console.WriteLine("Press any key to exit.");
             Console.ReadKey();
