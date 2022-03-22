@@ -15,12 +15,12 @@ namespace Serie_I
                 if (valeur % i == 0)
                     return false;
             }
-                return true;
+            return true;
         }
 
         public static void DisplayPrimes()
         {
-            for (int i=0; i < 100; i++)
+            for (int i = 0; i < 100; i++)
             {
                 if (IsPrime(i))
                     Console.WriteLine(i);
