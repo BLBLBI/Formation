@@ -47,6 +47,11 @@ namespace Serie_II
             Matrix.DisplayMatrix(Matrix.Addition(m1, m2));
             Matrix.DisplayMatrix(Matrix.Substraction(m1, m2));
 
+            int[][] mm1 = new int[][] { new int[] { 2, -3 }, new int[] { -1, 2 } };
+            int[][] mm2 = new int[][] { new int[] { 3, 1, 2 }, new int[] { 1, 0, 2 } };
+
+            Matrix.DisplayMatrix(Matrix.Multiplication(mm1, mm2));
+
             // Keep the console window open
             Console.WriteLine();
             Console.WriteLine("----------------------");

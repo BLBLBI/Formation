@@ -61,8 +61,9 @@ namespace Serie_II
 
         public static int[][] Multiplication(int[][] leftMatrix, int[][] rightMatrix)
         {
-            //TODO
-            return new int[0][];
+            int[][] m = new int[rightMatrix.Length][];
+
+            return m;
         }
 
         public static void DisplayMatrix(int[][] matrix)
