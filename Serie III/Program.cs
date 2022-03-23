@@ -24,6 +24,10 @@ namespace Serie_III
                 Console.WriteLine(ex.Message);
             }
 
+            Console.WriteLine("----------------------");
+
+
+
             // Keep the console window open
             Console.WriteLine("----------------------");
             Console.WriteLine("Press any key to exit.");

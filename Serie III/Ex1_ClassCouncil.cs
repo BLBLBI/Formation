@@ -12,44 +12,36 @@ namespace Serie_III
     {
         public static void SchoolMeans(string input, string output)
         {
-            List<string[]> line = new List<string[]>();
-            float histoire = 0;
-            float maths = 0;
-            int h = 0;
-            int m = 0;
+            Dictionary<string, List<float>> d = new Dictionary<string, List<float>>();
 
-            using (TextReader reader = new StreamReader(input))
+            using (StreamReader reader = new StreamReader(input))
             {
                 string l;
 
                 while ((l = reader.ReadLine()) != null)
                 {
-                    line.Add(l.Split(';'));
-                }
-            }
+                    string[] t = l.Split(';');
 
-            foreach (string[] s in line)
-            {
-                switch (s[1])
-                {
-                    case "Histoire":
-                        histoire += float.Parse(s[2]);
-                        h++;
-                        break;
-                    case "Maths":
-                        maths += float.Parse(s[2]);
-                        m++;
-                        break;
-                    default:
-                        Console.WriteLine("???");
-                        break;
+                    if (d.ContainsKey(t[1]))
+                        d[t[1]].Add(float.Parse(t[2]));
+                    else
+                        d.Add(t[1], new List<float>() { float.Parse(t[2]) });
                 }
             }
 
             using (TextWriter writer = new StreamWriter(output))
             {
-                writer.WriteLine("Histoire;" + Math.Round(histoire / h, 1));
-                writer.WriteLine("Maths;" + Math.Round(maths / m, 1));
+                foreach (KeyValuePair<string, List<float>> m in d)
+                {
+                    float s = 0;
+
+                    for (int i=0; i<m.Value.Count;i++)
+                    {
+                        s += m.Value[i];
+                    }
+
+                    writer.WriteLine(m.Key + ';' + Math.Round(s/m.Value.Count, 1));
+                }
             }
         }
     }
