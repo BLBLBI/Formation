@@ -24,8 +24,12 @@ namespace Serie_III
                 Console.WriteLine(ex.Message);
             }
 
-            Console.WriteLine("----------------------");
+            Console.WriteLine("----------------------\n");
 
+            List<int> i = new List<int>() { 2000, 5000, 10000 };
+            int count = 20;
+
+            SortingPerformance.DisplayPerformances(i, count);
 
 
             // Keep the console window open

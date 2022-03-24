@@ -33,14 +33,7 @@ namespace Serie_III
             {
                 foreach (KeyValuePair<string, List<float>> m in d)
                 {
-                    float s = 0;
-
-                    for (int i=0; i<m.Value.Count;i++)
-                    {
-                        s += m.Value[i];
-                    }
-
-                    writer.WriteLine(m.Key + ';' + Math.Round(s/m.Value.Count, 1));
+                    writer.WriteLine(m.Key + ';' + Math.Round(m.Value.Average() , 1));
                 }
             }
         }

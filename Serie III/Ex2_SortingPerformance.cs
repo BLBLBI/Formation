@@ -31,37 +31,103 @@ namespace Serie_III
     {
         public static void DisplayPerformances(List<int> sizes, int count)
         {
-            //TODO
+            List<SortData> lsd = new List<SortData>();
+            lsd = PerformancesTest(sizes, count);
+
+            Console.WriteLine("n;MeanInsertion;StdInsertion;MeanQuick;StdQuick");
+
+            for (int i = 0; i < sizes.Count; i++)
+            {
+                Console.WriteLine($"{sizes[i]};{lsd[i].InsertionMean};{lsd[i].InsertionStd};{lsd[i].QuickMean};{lsd[i].QuickStd}");
+            }
         }
 
         public static List<SortData> PerformancesTest(List<int> sizes, int count)
         {
-            //TODO
-            return new List<SortData>();
+            List<SortData> lsd = new List<SortData>();
+
+            for (int i = 0; i < sizes.Count; i++)
+                lsd.Add(PerformanceTest(sizes[i], count));
+
+            return lsd;
         }
 
         public static SortData PerformanceTest(int size, int count)
         {
-            //TODO
-            return new SortData();
+            List<int[]> l;
+            List<long> insertionM = new List<long>();
+            List<long> quickM = new List<long>();
+
+            SortData sd = new SortData();
+
+            for (int i = 0; i < count; i++)
+            {
+                l = ArraysGenerator(size);
+
+                insertionM.Add(UseInsertionSort(l[0]));
+                quickM.Add(UseQuickSort(l[1]));
+            }
+
+            sd.InsertionMean = (long)insertionM.Average();
+            sd.QuickMean = (long)quickM.Average();
+
+            long eI = 0;
+            long eQ = 0;
+
+            for (int i = 0; i < count; i++)
+            {
+                eI += (long)Math.Pow(sd.InsertionMean - insertionM[i], 2);
+                eQ += (long)Math.Pow(sd.QuickMean - quickM[i], 2);
+            }
+            sd.InsertionStd = (long)Math.Sqrt(eI / count);
+            sd.InsertionStd = (long)Math.Sqrt(eQ / count);
+
+            return sd;
         }
 
         private static List<int[]> ArraysGenerator(int size)
         {
-            //TODO
-            return new List<int[]>();
+            Random rnd = new Random();
+            List<int[]> l = new List<int[]>();
+
+            int[] a = new int[size];
+            int[] b = new int[size];
+
+            int t;
+
+            for (int i = 0; i < size; i++)
+            {
+                t = rnd.Next(-999, 1000);
+                a[i] = t;
+                b[i] = t;
+            }
+
+            l.Add(a);
+            l.Add(b);
+
+            return l;
         }
 
         public static long UseInsertionSort(int[] array)
         {
-            //TODO
-            return -1;
+            Stopwatch sw = new Stopwatch();
+
+            sw.Start();
+            InsertionSort(array);
+            sw.Stop();
+
+            return sw.ElapsedMilliseconds;
         }
 
         public static long UseQuickSort(int[] array)
         {
-            //TODO
-            return -1;
+            Stopwatch sw = new Stopwatch();
+
+            sw.Start();
+            QuickSort(array, 0, array.Length - 1);
+            sw.Stop();
+
+            return sw.ElapsedMilliseconds;
         }
 
         private static void InsertionSort(int[] array)
