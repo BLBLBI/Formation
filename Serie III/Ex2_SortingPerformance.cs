@@ -31,7 +31,7 @@ namespace Serie_III
     {
         public static void DisplayPerformances(List<int> sizes, int count)
         {
-            List<SortData> lsd = new List<SortData>();
+            List<SortData> lsd;
             lsd = PerformancesTest(sizes, count);
 
             Console.WriteLine("n;MeanInsertion;StdInsertion;MeanQuick;StdQuick");
