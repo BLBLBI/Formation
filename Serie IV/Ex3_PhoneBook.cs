@@ -9,7 +9,12 @@ namespace Serie_IV
 {
     public class PhoneBook
     {
-        Dictionary<string, string> _annuaire = new Dictionary<string, string>();
+        Dictionary<string, string> _annuaire;
+
+        public PhoneBook()
+        {
+            _annuaire = new Dictionary<string, string>();
+        }
 
         private bool IsValidPhoneNumber(string phoneNumber)
         {
