@@ -42,25 +42,21 @@ namespace Serie_IV
 
         private KeyValuePair<DateTime, DateTime> ClosestElements(DateTime beginMeeting)
         {
-            DateTime min = beginMeeting;
-            DateTime max = beginMeeting;
+            DateTime min = DateTime.MinValue;
+            DateTime max = DateTime.MaxValue;
 
-            foreach (var reunion in _edt)
+            foreach (var reunion in _edt.Keys)
             {
-                if (reunion.Key < min)
+                if (beginMeeting >= reunion)
                 {
-                    min = reunion.Key;
+                    min = reunion;
                 }
-                if (reunion.Key > max && max != beginMeeting)
+                else if (beginMeeting <= reunion)
                 {
-                    max = reunion.Key;
+                    max = reunion;
+                    break;
                 }
             }
-
-            if (min == beginMeeting)
-                min = beginRange;
-            if (max == beginMeeting)
-                max = endRange;
 
             return new KeyValuePair<DateTime, DateTime>(min, max);
         }
@@ -101,18 +97,38 @@ namespace Serie_IV
                 }
             }
 
+            if (date >= beginRange && date+duration <= endRange)
+            {
+                DateTime lowerDt = interval.Key;
+                DateTime upperDt = interval.Value;
+
+                if (lowerDt == DateTime.MinValue || date >= lowerDt + _edt[lowerDt]) &&
+                   (upperDt == DateTime.MaxValue) {
+                    _edt.Add(date, date + duration);
+                    return true;
+                }
+            }
+
             return false;
         }
 
         public bool DeleteBusinessMeeting(DateTime date, TimeSpan duration)
         {
-            //if ()
+            if (_edt.ContainsKey(date))
+            {
+                _edt.Remove(date);
+                return true;
+            }
             return false;
         }
 
         public int ClearMeetingPeriod(DateTime begin, DateTime end)
         {
-            //TODO
+            foreach (var reunion in _edt)
+            {
+                //if ()
+            }
+
             return -1;
         }
 

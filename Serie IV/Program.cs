@@ -25,11 +25,11 @@ namespace Serie_IV
             p.DisplayPhoneBook();
             */
 
-            BusinessSchedule edt = new BusinessSchedule();
+            //BusinessSchedule edt = new BusinessSchedule();
 
-            edt.DisplayMeetings();
+            //edt.DisplayMeetings();
 
-
+            Console.WriteLine(BracketsControl.BracketsControls("()"));
 
             // Keep the console window open
             Console.WriteLine();
